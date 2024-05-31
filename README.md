@@ -1,5 +1,5 @@
-# hydraulic-experiment-data
-Data from laboratory experiments for hydraulic parameter estimation. Code for treating said data and generating model parameters.
+# dh-hydraulic-parameter-estimation
+This repository contains experimental data and code associated with the paper (link to be inserted here). The experimental data comes from the Smart Water Infrastructure laboratory in Aalborg, Denmark.
 
 # Usage
 To use this code and data, simply clone this repo and install the required python packages found in the `requirements.txt` file.
@@ -27,7 +27,7 @@ python src/main.py prepare
 ```
 
 ## Model training
-To train a model, you first need to generate a config file for the model. To configure a file for training the model, create a JSON file in the `models` directory named e.g. "`model_name.json`" with the following fields.
+To train a model, you first need to generate a config file for the model. To configure a file for training the model, create a JSON file in the `src/models` directory named e.g. "`model_name.json`" with the following fields.
 
 Template training configuration file:
 ```json
