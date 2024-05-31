@@ -1,0 +1,19 @@
+
+# ignore the old-dirs directory containing initial testing files
+/old-dirs
+
+# ignore venv
+venv/
+
+# ignore the pure csv files in the data directory (only save compressed zip files)
+/data/**/*.csv
+
+# pickle files
+/src/**/*.pkl
+/data/**/*.pkl
+
+# tikz files
+/data/tikz/*
+
+# ignore all pycache directories
+__pycache__/

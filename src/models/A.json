@@ -1,0 +1,14 @@
+{
+    "parameterization": "linear",
+    "flow rate weights": 0,
+    "hysteresis percent": 0,
+    "cost norm": 1,
+    "regularization norm": 1,
+    "valve regularization gain": 0,
+    "pipe regularization gain": 0,
+    "flow rate exponent": 2.0,
+    "flow rate threshold": 0.0,
+    "training data percent": 70,
+    "zero threshold": 1e-4,
+    "description": "A simple model using a linear valve curve."
+}
