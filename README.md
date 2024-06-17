@@ -73,10 +73,10 @@ Create a new function with the following signature:
 ```python
 def f_your_parameterization(v):
     return np.array( [
-        1 / (your_function(vi)**2) for vi in v
+        1 / (your_k(vi)**2) for vi in v
     ])
 ```
-Where `v` is a vector of valve positions and `your_function` is the function that maps valve positions to the parameterization you want to use.
+Where the input `v` is a vector of valve positions and `your_k` is the function that maps valve positions to the valve curve parameterization you want to use. 
 
 Then, add the function to the `model_map` dictionary in the `load_parameterization` function in the same file:
 ```python
