@@ -3,10 +3,14 @@ import pandas as pd
 import numpy as np
 import os
 
+ROOT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+RAW_DATA_DIR = os.path.join(os.path.dirname(ROOT_DIR), "data", "raw_data")
+
 def filter_realistic(file, step_length):
-    data = pd.read_csv("data/raw_data/realistic/" + file)
-    # drop first 1000 samples which correspond to a start-up-period
-    data = data.drop(range(1000))
+    filepath = os.path.join(RAW_DATA_DIR, "realistic", file)
+    data = pd.read_csv(filepath)
+    # drop first 100 samples which correspond to a start-up-period
+    data = data.drop(range(100))
     # rearrange the index to start at 0
     l = len(data)
     data.index = np.arange(l)
@@ -16,14 +20,15 @@ def filter_realistic(file, step_length):
     return data
 
 def filter_exciting(file, drop_first, step_length):
-    data = pd.read_csv("data/raw_data/exciting/" + file)
+    filepath = os.path.join(RAW_DATA_DIR, "exciting", file)
+    data = pd.read_csv(filepath)
 
     # drop first 20 samples which correspond to a start-up-period.
     data_mean = pd.concat(
         [data.iloc[i+drop_first:i+step_length].mean() for i in range(20, len(data), step_length)], 
         axis=1).transpose()
     
-    # drop the last sample to avoid nan values due to mismatch in samle size
+    # drop the last sample to avoid nan values due to mismatch in sample size
     data_mean = data_mean.drop(data_mean.index[-1])
     return data_mean
 
@@ -35,7 +40,7 @@ def make_filtered_data_set(method, step_length, drop_first=10):
     else:
         raise ValueError("Invalid method: " + method)
     
-    # load consumer data and drop first 1000 samples which correspond to a start-up-period
+    # load consumer data and compute mean over step_length samples
     consumer_1 = prep_method('consumer_1.csv')
     consumer_2 = prep_method('consumer_2.csv')
     consumer_3 = prep_method('consumer_3.csv')
@@ -71,10 +76,10 @@ def make_filtered_data_set(method, step_length, drop_first=10):
 
     if method == "realistic":
         # add a time column in real world hours from 0 to 24*14
-        data["time"] = [i * step_length / 1200 for i in range(len(data))]
+        data["time"] = [i * step_length / 120 for i in range(len(data))]
         # add a lab time column, incremented by step_length * 0.1 seconds
-        data["lab_time_seconds"] = [i * step_length * 0.1 for i in range(len(data))]
-        data["lab_time_minutes"] = [i * step_length * 0.1 / 60 for i in range(len(data))]
+        data["lab_time_seconds"] = [i * step_length * 1.0 for i in range(len(data))]
+        data["lab_time_minutes"] = [i * step_length * 1.0 / 60 for i in range(len(data))]
         # add reference column
         data["qr0"] = consumer_1["qr"]
         data["qr1"] = consumer_2["qr"]
@@ -90,12 +95,12 @@ def make_filtered_data_set(method, step_length, drop_first=10):
 
 def run():
     # filter the realistic data set
-    step_length = 300
+    step_length = 30
     # step lengths:
-    # 100 corresponds to 5 minutes real life time
-    # 300 corresponds to 15 minutes real life time
-    # 600 corresponds to 30 minutes real life time
-    # 1200 corresponds to 1 hour real life time
+    # 10 corresponds to 5 minutes real life time
+    # 30 corresponds to 15 minutes real life time
+    # 60 corresponds to 30 minutes real life time
+    # 120 corresponds to 1 hour real life time
     print("Preparing realistic data set.")
     data = make_filtered_data_set("realistic", step_length)
     if os.path.exists("data/realistic.csv"):
