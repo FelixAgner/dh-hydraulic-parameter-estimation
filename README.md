@@ -1,5 +1,6 @@
-# dh-hydraulic-parameter-estimation
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.11946410.svg)](https://doi.org/10.5281/zenodo.11946410)
+
+# dh-hydraulic-parameter-estimation
 This repository contains experimental data and code associated with the paper (link to be inserted here). The experimental data comes from the Smart Water Infrastructure laboratory in Aalborg, Denmark.
 
 # Usage
