@@ -11,9 +11,9 @@ Volume 312,
 2024,
 133462,
 ISSN 0360-5442,
-[https://doi.org/10.1016/j.energy.2024.133462](https://doi.org/10.1016/j.energy.2024.133462)
-[https://www.sciencedirect.com/science/article/pii/S0360544224032389](https://www.sciencedirect.com/science/article/pii/S0360544224032389)
 ```
+URL: [https://doi.org/10.1016/j.energy.2024.133462](https://doi.org/10.1016/j.energy.2024.133462)
+DOI: [https://www.sciencedirect.com/science/article/pii/S0360544224032389](https://www.sciencedirect.com/science/article/pii/S0360544224032389)
 
 The experimental data comes from the Smart Water Infrastructure laboratory in Aalborg, Denmark.
 
