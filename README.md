@@ -1,7 +1,21 @@
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.11946410.svg)](https://doi.org/10.5281/zenodo.11946410)
 
 # dh-hydraulic-parameter-estimation
-This repository contains experimental data and code associated with the paper (link to be inserted here). The experimental data comes from the Smart Water Infrastructure laboratory in Aalborg, Denmark.
+This repository contains experimental data and code associated with the paper 
+
+```
+Hydraulic parameter estimation for district heating based on laboratory experiments,
+Felix Agner, Christian Møller Jensen, Anders Rantzer, Carsten Skovmose Kallesøe, Rafal Wisniewski
+Energy,
+Volume 312,
+2024,
+133462,
+ISSN 0360-5442,
+[https://doi.org/10.1016/j.energy.2024.133462](https://doi.org/10.1016/j.energy.2024.133462)
+[https://www.sciencedirect.com/science/article/pii/S0360544224032389](https://www.sciencedirect.com/science/article/pii/S0360544224032389)
+```
+
+The experimental data comes from the Smart Water Infrastructure laboratory in Aalborg, Denmark.
 
 # Usage
 To use this code and data, simply clone this repo and install the required python packages found in the `requirements.txt` file.
